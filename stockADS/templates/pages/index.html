@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=", initial-scale=1.0">
+  <title>Pet InLove</title>
+  <link rel="stylesheet" href="{% static 'css/global.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <h2>Pet InLove</h2>
+  </nav>
+
+  <main>
+    <section id="products" class="about">
+      <table class="table">
+        <thead>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Descrição</th>
+        </thead>
+        <tbody>
+          <div>
+            <a href="{% url 'add-product' %}">
+              <button class="botao">Adicionar Produto</button>
+            </a>
+          </div>
+          <tr>
+            {% for produto in produtos %}
+            <td>
+              <a href="{% url 'product-detail' produto.id %}">
+              {{ produto.name}}</td>
+            <td>R${{ produto.price }}</td>
+            <td>R${{ produto.qtd }}</td>
+            <td>{{ produto.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        
+      </table>
+      <div class="paginação">
+      <ul class="pagination">
+        <li><a href="#">«</a></li>
+        <li><a href="#">1</a></li>
+        <li><a class="active" href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">»</a></li>
+      </ul>
+    </div>
+
+  <!-- {%for produto in produtos %}
+  <h1>{{ produto.name }} - R${{ produto.price }}</h1>
+  {% endfor %} -->
+</body>
+</html>

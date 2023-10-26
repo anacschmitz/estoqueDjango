@@ -1,0 +1,22 @@
+python -m venv venv << criar ambiente virtual
+-
+python .\venv\Scripts\activate
+-
+pip install django
+-
+pip freeze > requirements.txt << gerar um txt com todos os pacotes da versão
+-
+pip install -r requeriments.txt
+-
+-- Projeto:
+python -m django startproject nome_do_projeto .
+-
+python manage.py startapp nome_do_app << inicializador do app criado automaticamente pelo Django
+-
+Criar e executar as migrações
+python manage.py makemigration
+python manage.py migrate
+-
+python manage.py createsuperuser 
+python manage.py shell##
+-
